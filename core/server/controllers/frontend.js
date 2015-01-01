@@ -528,6 +528,8 @@ frontendControllers = {
                                 author: post.author ? post.author.name : null
                             },
                             htmlContent = cheerio.load(post.html, {decodeEntities: false});
+                        if (_.contains(item.categories, 'draft'))
+                            return;
 
                         // convert relative resource urls to absolute
                         ['href', 'src'].forEach(function (attributeName) {
